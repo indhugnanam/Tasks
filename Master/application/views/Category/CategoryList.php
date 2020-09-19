@@ -13,6 +13,7 @@
 						<th>Category Name</th>
 						<th>Status</th>
 						<th>Edit</th>
+						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -21,6 +22,7 @@
 							<td><?php echo $value->Category_Name; ?></td>
 							<td><?php echo ($value->Status=="A")?"Active":"Inactive"; ?></td>
 							<td><a href="<?php echo base_url(); ?>CAdmin/edit_category/<?php echo $value->Category_Id; ?>"><i class="fa fa-edit"></i></a></td>
+							<td><a href="<?php echo base_url(); ?>CAdmin/delete_category/<?php echo $value->Category_Id; ?>"><i class="fa fa-trash"></i></a></td>
 						</tr>
 					<?php } }?>
 				</tbody>
