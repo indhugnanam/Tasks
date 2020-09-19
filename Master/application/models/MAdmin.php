@@ -47,6 +47,10 @@ class MAdmin extends CI_model
 		}
 		return $res;
 	}
+	public function delete_data($table,$filter)
+    {
+  		return  $this->generic->delete_data($table,$filter);
+    }
 
 }
 
