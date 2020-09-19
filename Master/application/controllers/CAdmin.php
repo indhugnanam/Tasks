@@ -79,6 +79,22 @@ class CAdmin extends CI_Controller {
 		$this->load->view('vDetails',$data);
 	}
 
+	//delete category
+	public function delete_subcategory($id="")
+	{
+		//get records by cat_id
+		$table ="Products";
+		$selection ="*";
+		$filter =array('Sub_Id'=>$id);
+		$getrecord =$this->MAdmin->get_record_by_id($table,$selection,$filter);
+		if(empty($getrecord)){			
+			$table ="Sub_Category";
+			$delete =$this->MAdmin->delete_data($table,$filter);
+		}
+        redirect('CAdmin/SubCategoryList','refresh');
+
+	}
+
 	//edit category
 	public function list_subcategory($id="")
 	{
@@ -145,7 +161,6 @@ class CAdmin extends CI_Controller {
 	 	//get all category list
 		$data['category_list']=$this->MAdmin->getAllRecords($table,$selection,$criteria);
 
-		// vdebug($data['category_list']);
 		$data['script']="";
 		$data['vw']="Category/CategoryList";
 		$this->load->view('vDetails',$data);
@@ -187,6 +202,23 @@ class CAdmin extends CI_Controller {
 		$data['vw']="Category/edit_category";
 		$this->load->view('vDetails',$data);
 	}
+
+	//delete category
+	public function delete_category($id="")
+	{
+		//get records by cat_id
+		$table ="Sub_Category";
+		$selection ="*";
+		$filter =array('Category_Id'=>$id);
+		$getrecord =$this->MAdmin->get_record_by_id($table,$selection,$filter);
+		if(empty($getrecord)){			
+			$table ="Category";
+			$delete =$this->MAdmin->delete_data($table,$filter);
+		}
+        redirect('CAdmin/CategoryList','refresh');
+
+	}
+
 	//update category
 	public function update_Category()
 	{
@@ -304,6 +336,19 @@ class CAdmin extends CI_Controller {
 		$data['vw']="Product/edit_product";
 		$this->load->view('vDetails',$data);
 	}
+
+	//delete category
+	public function delete_product($id="")
+	{
+				
+		$table ="Products";
+		$filter =array('Product_Id'=>$id);
+		$delete =$this->MAdmin->delete_data($table,$filter);
+
+        redirect('CAdmin/ProductList','refresh');
+
+	}
+
 
 	//update product
 	public function update_product()
