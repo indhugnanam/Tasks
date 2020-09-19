@@ -18,6 +18,7 @@
 						<th>Price</th>
 						<th>Status</th>
 						<th>Edit</th>
+						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -29,6 +30,7 @@
 							<td><?php echo $value->Price; ?></td>	
 							<td><?php echo ($value->Status=="A")?"Active":"Inactive"; ?></td>
 							<td><a href="<?php echo base_url(); ?>CAdmin/edit_product/<?php echo $value->Product_Id ?>"><i class="fa fa-edit"></i></td>
+							<td><a href="<?php echo base_url(); ?>CAdmin/delete_product/<?php echo $value->Product_Id ?>"><i class="fa fa-trash"></i></td>
 						</tr>
 					<?php } ?>
 				</tbody>
